@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/create': {
-        target: 'http://localhost:4000', // backend ka URL
+        target: 'https://threejs-backend-0bbe.onrender.com', // backend ka URL
         changeOrigin: true,
       },
     },

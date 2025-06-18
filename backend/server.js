@@ -7,7 +7,10 @@ require('dotenv').config(); // Load environment variables from .env file
 const app = express();
 const cors = require('cors');
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://threejs-frontend-gs5h.onrender.com', // allow only your frontend
+}));
+
 
 
 // Middleware

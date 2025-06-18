@@ -37,6 +37,6 @@ npm-debug.log*
 
 # Ignore backend/public and frontend/public if dynamically generated
 backend/public/
-vite-project/public/model/
+
 
 

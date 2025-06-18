@@ -120,7 +120,7 @@ document.getElementById('form').addEventListener('submit', async function (event
   console.log('Sending data to backend:', data);
 
   try {
-    const response = await fetch('/create', {
+    const response = await fetch('https://threejs-backend-baoa.onrender.com/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

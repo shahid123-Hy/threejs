@@ -1,0 +1,42 @@
+# Node.js dependencies
+**/node_modules/
+
+# Environment variables
+.env
+.env.*  
+
+# Log files
+*.log
+
+# Build outputs (common for frontend)
+dist/
+build/
+.vite/
+.vite-temp/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# MacOS trash and hidden files
+.Trashes
+._*
+
+# Optional npm debug files
+npm-debug.log*
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional: if you don't want to track `package-lock.json`
+# package-lock.json
+
+# Ignore backend/public and frontend/public if dynamically generated
+backend/public/
+vite-project/public/model/
+
+

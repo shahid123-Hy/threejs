@@ -113,9 +113,14 @@ window.addEventListener('resize', () => {
 
 document.getElementById('form').addEventListener('submit', async function (event) {
   event.preventDefault();
-
-  const formData = new FormData(this);
+  const form = this;
+  const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
+  const responseE1 = document.getElementById('response');
+  const submitbtn = form.querySelector('button[type="submit"]');
+
+  submitbtn.disabled = true;
+  responseE1.textContent = 'submitting...'
 
   console.log('Sending data to backend:', data);
 
@@ -128,23 +133,25 @@ document.getElementById('form').addEventListener('submit', async function (event
       body: JSON.stringify(data),
     });
 
+
+    const result = await response.json();
     if (!response.ok) {
       // If backend returns an error status, get the error message
-      const errorData = await response.json();
-      console.error('Server error:', errorData);
-      document.getElementById('response').textContent = `Error: ${errorData.error || 'Unknown error'}`;
+      responseE1.textContent = `Error: ${errorData.error || 'Unknown error'}`;
       return;
     }
 
-    const result = await response.json();
-    console.log('Response from backend:', result);
+
 
     // Show a success message — customize based on your backend response structure
-    document.getElementById('response').textContent = 'Form submitted successfully!';
+    responseE1.textContent = 'Form submitted successfully!';
+    form.reset();
 
   } catch (error) {
-    console.error('Fetch error:', error);
-    document.getElementById('response').textContent = 'An error occurred. Please try again.';
+    
+    responseE1.textContent = 'network error. Please try again.';
+  } finally{
+    submitbtn.disabled = false;
   }
 });
 
